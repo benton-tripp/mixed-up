@@ -1,3 +1,9 @@
+create-env.bat
+.env
+env/
+static/img/
+!static/img/.gitkeep
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

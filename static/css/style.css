@@ -1,0 +1,11 @@
+img {
+    width: 100%; /* Adjust the width as necessary, could also use max-width */
+    height: auto; /* This maintains the aspect ratio */
+    object-fit: contain; /* This ensures the image is fully visible, but might leave some space */
+  }
+
+#imageContainer {
+    width:80vh; 
+    height:80vh; 
+    margin:10px;
+}

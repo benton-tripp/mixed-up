@@ -1,2 +1,1 @@
-# mixed-up
-Children's Web App for Mixing Animals together using AI
+# Mixing Animals - A Fun Children's App that uses Generative AI 

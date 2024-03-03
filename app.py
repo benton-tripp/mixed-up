@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for
 import openai
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -31,7 +31,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    image_dir_path = os.path.join('static', 'img')  # Full path to the image directory
+    image_files = [file for file in os.listdir(image_dir_path) if file.endswith(('.png', '.jpg', '.jpeg'))]
+    
+    # Sort files by modification time in descending order (newest first)
+    image_files.sort(key=lambda file: os.path.getmtime(os.path.join(image_dir_path, file)), reverse=True)
+    
+    # Generate URLs for the sorted image files
+    image_urls = [url_for('static', filename=os.path.join('img', file).replace(os.sep, '/')) for file in image_files]
+    return render_template('index.html', image_urls=image_urls)
 
 @app.route('/generate', methods=['POST'])
 def generate():
@@ -39,14 +47,14 @@ def generate():
     retry_delay = 1  # Initial delay between retries in seconds
 
     if request.method == 'POST':
+        print(request.form)
         animal1 = request.form['animal1']
         animal2 = request.form['animal2']
-
+        
         # Construct the prompt
-        prompt = f""""Create a silly, photorealistic image of acreature that combines the 
-            features of a {animal1} and a {animal2}. This unique animal merges the 
-            characteristics of both animals in a seemingly natural way. The creature is 
-            situated in an environment that suits its blended nature."""
+        prompt = "Create a silly, photorealistic image of a creature with " +\
+            f"the body of a {animal1}, and the attributes and features of a {animal2}." +\
+            "No text."
         print(prompt)
 
         for attempt in range(max_retries):

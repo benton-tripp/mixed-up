@@ -15,108 +15,123 @@
         <div style="margin:5px;">
             <b style="font-size:18px;">Choose Two Animals:</b>
         </div>
-        <form id="animalForm" action="/generate" method="post">
-            <div id="animalSelections" style="display:flex; flex-direction: column;;">
-                <!-- Animal emojis as buttons -->
-                <div style="display:flex; flex-direction: row;">
-                    <button type="button" class="animal-btn" data-animal="kangaroo">🦘</button>
-                    <button type="button" class="animal-btn" data-animal="mallard">🦆</button>
-                    <button type="button" class="animal-btn" data-animal="turtle">🐢</button>
-                    <button type="button" class="animal-btn" data-animal="bee">🐝</button>
-                    <button type="button" class="animal-btn" data-animal="butterfly">🦋</button>
-                    <button type="button" class="animal-btn" data-animal="spider">🕷️</button>
-                    <button type="button" class="animal-btn" data-animal="emerald tree boa">🐍</button>
-                    <button type="button" class="animal-btn" data-animal="Brontosaurus">🦕</button>
-                    <button type="button" class="animal-btn" data-animal="T-rex">🦖</button>
-                    <button type="button" class="animal-btn" data-animal="Bald Eagle">🦅</button>
-                    <button type="button" class="animal-btn" data-animal="Owl">🦉</button>
-                    <button type="button" class="animal-btn" data-animal="penguin">🐧</button>
+        <div style="display:flex; flex-direction: row;">
+            <div style="margin-right:3px;">
+            <form id="animalForm" action="/generate" method="post">
+                <div id="animalSelections" style="display:flex; flex-direction: column;;">
+                    <!-- Animal emojis as buttons -->
+                    <div style="display:flex; flex-direction: row;">
+                        <!-- 
+                            TODO: Add other attributes 
+                            e.g., data-limbs="true" data-wings="false" data-tail="true" ...
+                        -->
+                        <button type="button" class="animal-btn" data-animal="kangaroo">🦘</button>
+                        <button type="button" class="animal-btn" data-animal="mallard">🦆</button>
+                        <button type="button" class="animal-btn" data-animal="turtle">🐢</button>
+                        <button type="button" class="animal-btn" data-animal="bee">🐝</button>
+                        <button type="button" class="animal-btn" data-animal="butterfly">🦋</button>
+                        <button type="button" class="animal-btn" data-animal="spider">🕷️</button>
+                        <button type="button" class="animal-btn" data-animal="Emerald Tree Boa">🐍</button>
+                        <button type="button" class="animal-btn" data-animal="Brontosaurus">🦕</button>
+                        <button type="button" class="animal-btn" data-animal="T-rex">🦖</button>
+                        <button type="button" class="animal-btn" data-animal="Bald Eagle">🦅</button>
+                        <button type="button" class="animal-btn" data-animal="Owl">🦉</button>
+                        <button type="button" class="animal-btn" data-animal="penguin">🐧</button>
+                    </div>
+                    <div style="display:flex; flex-direction: row;">
+                        <button type="button" class="animal-btn" data-animal="flamingo">🦩</button>
+                        <button type="button" class="animal-btn" data-animal="turkey">🦃</button>
+                        <button type="button" class="animal-btn" data-animal="peacock">🦚</button>
+                        <button type="button" class="animal-btn" data-animal="rooster">🐓</button>
+                        <button type="button" class="animal-btn" data-animal="jellyfish">🪼</button>
+                        <button type="button" class="animal-btn" data-animal="dragon">🐉</button>
+                        <button type="button" class="animal-btn" data-animal="Blue Whale">🐋</button>
+                        <button type="button" class="animal-btn" data-animal="Crab">🦀</button>
+                        <button type="button" class="animal-btn" data-animal="Tropical Fish">🐠</button>
+                        <button type="button" class="animal-btn" data-animal="Octopus">🐙</button>
+                        <button type="button" class="animal-btn" data-animal="Squid">🦑</button>
+                        <button type="button" class="animal-btn" data-animal="Blowfish">🐡</button>
+                    </div>
+                    <div style="display:flex; flex-direction: row;">
+                        <button type="button" class="animal-btn" data-animal="Shark">🦈</button>
+                        <button type="button" class="animal-btn" data-animal="Poodle">🐩</button>
+                        <button type="button" class="animal-btn" data-animal="Cat">🐈</button>
+                        <button type="button" class="animal-btn" data-animal="Tiger">🐅</button>
+                        <button type="button" class="animal-btn" data-animal="Monkey">🐒</button>
+                        <button type="button" class="animal-btn" data-animal="Giraffe">🦒</button>
+                        <button type="button" class="animal-btn" data-animal="Elephant">🐘</button>
+                        <button type="button" class="animal-btn" data-animal="Deer">🦌</button>
+                        <button type="button" class="animal-btn" data-animal="Bison">🦬</button>
+                        <button type="button" class="animal-btn" data-animal="Hippo">🦛</button>
+                        <button type="button" class="animal-btn" data-animal="Crocodile">🐊</button>
+                        <button type="button" class="animal-btn" data-animal="Lizard">🦎</button>
+                    </div>
+                    <div style="display:flex; flex-direction: row;">
+                        <button type="button" class="animal-btn" data-animal="Mosquito">🦟</button>
+                        <button type="button" class="animal-btn" data-animal="Fly">🪰</button>
+                        <button type="button" class="animal-btn" data-animal="Cockroach">🪳</button>
+                        <button type="button" class="animal-btn" data-animal="Ant">🐜</button>
+                        <button type="button" class="animal-btn" data-animal="Grashopper">🦗</button>
+                        <button type="button" class="animal-btn" data-animal="Sloth">🦥</button>
+                        <button type="button" class="animal-btn" data-animal="Orangutan">🦧</button>
+                        <button type="button" class="animal-btn" data-animal="Pig">🐖</button>
+                        <button type="button" class="animal-btn" data-animal="Horse">🐎</button>
+                        <button type="button" class="animal-btn" data-animal="Goat">🐐</button>
+                        <button type="button" class="animal-btn" data-animal="Llama">🦙</button>
+                        <button type="button" class="animal-btn" data-animal="Zebra">🦓</button>
+                    </div>
+                    <div style="display:flex; flex-direction: row;">
+                        <button type="button" class="animal-btn" data-animal="Rhinoceros">🦏</button>
+                        <button type="button" class="animal-btn" data-animal="Leopard">🐆</button>
+                        <button type="button" class="animal-btn" data-animal="Camel">🐪</button>
+                        <button type="button" class="animal-btn" data-animal="Seal">🦭</button>
+                        <button type="button" class="animal-btn" data-animal="Lion">🦁</button>
+                        <button type="button" class="animal-btn" data-animal="Grizzly Bear">🐻</button>
+                        <button type="button" class="animal-btn" data-animal="Hedgehog">🦔</button>
+                        <button type="button" class="animal-btn" data-animal="Rat">🐀</button>
+                        <button type="button" class="animal-btn" data-animal="Beaver">🦫</button>
+                        <button type="button" class="animal-btn" data-animal="Mouse">🐁</button>
+                        <button type="button" class="animal-btn" data-animal="Panda">🐼</button>
+                        <button type="button" class="animal-btn" data-animal="Badger">🦡</button>
+                    </div>
+                    <div style="display:flex; flex-direction: row;">
+                        <button type="button" class="animal-btn" data-animal="Chipmunk">🐿️</button>
+                        <button type="button" class="animal-btn" data-animal="Bat">🦇</button>
+                        <button type="button" class="animal-btn" data-animal="Dolphin">🐬</button>
+                        <button type="button" class="animal-btn" data-animal="Shrimp">🦐</button>
+                        <button type="button" class="animal-btn" data-animal="Skunk">🦨</button>
+                        <button type="button" class="animal-btn" data-animal="Koala">🐨</button>
+                        <button type="button" class="animal-btn" data-animal="Sheep">🐑</button>
+                        <button type="button" class="animal-btn" data-animal="Dog">🐕</button>
+                        <button type="button" class="animal-btn" data-animal="Goose">🪿</button>
+                        <button type="button" class="animal-btn" data-animal="Parrot">🦜</button>
+                        <button type="button" class="animal-btn" data-animal="Snail">🐌</button>
+                        <button type="button" class="animal-btn" data-animal="Frog">🐸</button>
+                    </div>
+                    <!-- Add more animal buttons as needed -->
                 </div>
-                <div style="display:flex; flex-direction: row;">
-                    <button type="button" class="animal-btn" data-animal="flamingo">🦩</button>
-                    <button type="button" class="animal-btn" data-animal="turkey">🦃</button>
-                    <button type="button" class="animal-btn" data-animal="peacock">🦚</button>
-                    <button type="button" class="animal-btn" data-animal="rooster">🐓</button>
-                    <button type="button" class="animal-btn" data-animal="jellyfish">🪼</button>
-                    <button type="button" class="animal-btn" data-animal="dragon">🐉</button>
-                    <button type="button" class="animal-btn" data-animal="Blue Whale">🐋</button>
-                    <button type="button" class="animal-btn" data-animal="Crab">🦀</button>
-                    <button type="button" class="animal-btn" data-animal="Tropical Fish">🐠</button>
-                    <button type="button" class="animal-btn" data-animal="Octopus">🐙</button>
-                    <button type="button" class="animal-btn" data-animal="Squid">🦑</button>
-                    <button type="button" class="animal-btn" data-animal="Blowfish">🐡</button>
+                <!-- Hidden inputs to store the selected animals -->
+                <input type="hidden" name="animal1" id="animal1">
+                <input type="hidden" name="animal2" id="animal2">
+                <div style="display:flex; flex-direction:row; margin:5px;">   
+                    <div style="margin:5px;">
+                        <input type="submit" value="Generate" id="submitBtn" disabled style="font-size:18px;">
+                    </div>
+                    <div style="margin:5px;">
+                        <button type="button" id="resetBtn" style="font-size:18px;">Reset</button>
+                    </div>
                 </div>
-                <div style="display:flex; flex-direction: row;">
-                    <button type="button" class="animal-btn" data-animal="Shark">🦈</button>
-                    <button type="button" class="animal-btn" data-animal="Poodle">🐩</button>
-                    <button type="button" class="animal-btn" data-animal="Cat">🐈</button>
-                    <button type="button" class="animal-btn" data-animal="Tiger">🐅</button>
-                    <button type="button" class="animal-btn" data-animal="Monkey">🐒</button>
-                    <button type="button" class="animal-btn" data-animal="Giraffe">🦒</button>
-                    <button type="button" class="animal-btn" data-animal="Elephant">🐘</button>
-                    <button type="button" class="animal-btn" data-animal="Deer">🦌</button>
-                    <button type="button" class="animal-btn" data-animal="Bison">🦬</button>
-                    <button type="button" class="animal-btn" data-animal="Hippo">🦛</button>
-                    <button type="button" class="animal-btn" data-animal="Crocodile">🐊</button>
-                    <button type="button" class="animal-btn" data-animal="Lizard">🦎</button>
-                </div>
-                <div style="display:flex; flex-direction: row;">
-                    <button type="button" class="animal-btn" data-animal="Mosquito">🦟</button>
-                    <button type="button" class="animal-btn" data-animal="Fly">🪰</button>
-                    <button type="button" class="animal-btn" data-animal="Cockroach">🪳</button>
-                    <button type="button" class="animal-btn" data-animal="Ant">🐜</button>
-                    <button type="button" class="animal-btn" data-animal="Grashopper">🦗</button>
-                    <button type="button" class="animal-btn" data-animal="Sloth">🦥</button>
-                    <button type="button" class="animal-btn" data-animal="Orangutan">🦧</button>
-                    <button type="button" class="animal-btn" data-animal="Pig">🐖</button>
-                    <button type="button" class="animal-btn" data-animal="Horse">🐎</button>
-                    <button type="button" class="animal-btn" data-animal="Goat">🐐</button>
-                    <button type="button" class="animal-btn" data-animal="Llama">🦙</button>
-                    <button type="button" class="animal-btn" data-animal="Zebra">🦓</button>
-                </div>
-                <div style="display:flex; flex-direction: row;">
-                    <button type="button" class="animal-btn" data-animal="Rhinoceros">🦏</button>
-                    <button type="button" class="animal-btn" data-animal="Leopard">🐆</button>
-                    <button type="button" class="animal-btn" data-animal="Camel">🐪</button>
-                    <button type="button" class="animal-btn" data-animal="Seal">🦭</button>
-                    <button type="button" class="animal-btn" data-animal="Lion">🦁</button>
-                    <button type="button" class="animal-btn" data-animal="Grizzly Bear">🐻</button>
-                    <button type="button" class="animal-btn" data-animal="Hedgehog">🦔</button>
-                    <button type="button" class="animal-btn" data-animal="Rat">🐀</button>
-                    <button type="button" class="animal-btn" data-animal="Beaver">🦫</button>
-                    <button type="button" class="animal-btn" data-animal="Mouse">🐁</button>
-                    <button type="button" class="animal-btn" data-animal="Panda">🐼</button>
-                    <button type="button" class="animal-btn" data-animal="Badger">🦡</button>
-                </div>
-                <div style="display:flex; flex-direction: row;">
-                    <button type="button" class="animal-btn" data-animal="Chipmunk">🐿️</button>
-                    <button type="button" class="animal-btn" data-animal="Bat">🦇</button>
-                    <button type="button" class="animal-btn" data-animal="Dolphin">🐬</button>
-                    <button type="button" class="animal-btn" data-animal="Shrimp">🦐</button>
-                    <button type="button" class="animal-btn" data-animal="Skunk">🦨</button>
-                    <button type="button" class="animal-btn" data-animal="Koala">🐨</button>
-                    <button type="button" class="animal-btn" data-animal="Sheep">🐑</button>
-                    <button type="button" class="animal-btn" data-animal="Dog">🐕</button>
-                    <!-- 1-->
-                    <!-- 2-->
-                    <!-- 3-->
-                    <!-- 4-->
-                    <!-- 5-->
-                </div>
-                <!-- Add more animal buttons as needed -->
+            </form>
             </div>
-            <!-- Hidden inputs to store the selected animals -->
-            <input type="hidden" name="animal1" id="animal1">
-            <input type="hidden" name="animal2" id="animal2">
-            <div style="display:flex; flex-direction:row; margin:5px;">   
-                <div style="margin:5px;">
-                    <input type="submit" value="Generate" id="submitBtn" disabled>
-                </div>
-                <div style="margin:5px;">
-                    <button type="button" id="resetBtn">Reset</button>
-                </div>
+            <div class="image-gallery">
+                {% for image_url in image_urls %}
+                    <div class="gallery-img">
+                        <img src="{{ image_url }}" alt="Gallery Image" style="width: 100%;" 
+                             onclick="window.open('{{ image_url }}', '_blank');">
+                    </div>
+                {% endfor %}
             </div>
-        </form>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

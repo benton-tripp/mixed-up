@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Generated Image</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Image</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h2>Generated Image</h2>
-    <div id="imageContainer">
-        <img src="{{ image_url }}" alt="Generated Image" />
-    </div>
-    <div style="margin:15px;">
-        <a href="/">Return to home</a>
+    <div style="width:100%; height:95%;">
+        <h2>Generated Images</h2>
+        <div id="imageContainer">
+            {% for image_url in image_urls %}
+                <div style="margin:5px;">
+                    <img src="{{ image_url }}" alt="Generated Image" />
+                </div>
+            {% endfor %}
+        </div>
+        <div style="margin:15px;">
+            <a href="/">Return to home</a>
+        </div>
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

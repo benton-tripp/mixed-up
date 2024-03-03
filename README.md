@@ -1,1 +1,1 @@
-# Mixing Animals - A Fun Children's App that uses Generative AI 
+# 🐄 + 🦘 = ?

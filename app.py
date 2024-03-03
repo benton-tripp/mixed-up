@@ -43,14 +43,29 @@ def generate():
         animal2 = request.form['animal2']
 
         # Construct the prompt
-        prompt = f"A silly, photorealistic image of a creature that's a blend of a {animal1} and a {animal2}."
+        prompt = f""""Create a silly, photorealistic image of acreature that combines the 
+            features of a {animal1} and a {animal2}. This unique animal merges the 
+            characteristics of both animals in a seemingly natural way. The creature is 
+            situated in an environment that suits its blended nature."""
+        print(prompt)
 
         for attempt in range(max_retries):
             try:
-                response = client.images.generate(
+                print("Generating [1/2]")
+                response_1 = client.images.generate(
                     model="dall-e-3",
                     prompt=prompt,
-                    size="1024x1024",
+                    size="1792x1024",
+                    quality="standard", # Alternatively, "hd"
+                    response_format="url",
+                    style="vivid", # Alternatively, "vivid"
+                    n=1,
+                )
+                print("Generating [2/2]")
+                response_2 = client.images.generate(
+                    model="dall-e-3",
+                    prompt=prompt,
+                    size="1792x1024",
                     quality="standard", # Alternatively, "hd"
                     response_format="url",
                     style="vivid", # Alternatively, "vivid"
@@ -68,20 +83,35 @@ def generate():
                         'error.html', 
                         error_message="Failed to process your request after several attempts." +\
                             "\nPlease try again later.")
-        
-        # Extract image URL
-        print(response)
-        # save the image
-        formatted_date_time = datetime.now().strftime("%Y%m%d%H%M")
-        generated_image_name = "img" + formatted_date_time + ".png" 
-        generated_image_filepath = os.path.join(image_dir, generated_image_name)
-        generated_image_url = response.data[0].url  # extract image URL from response
-        generated_image = requests.get(generated_image_url).content  # download the image
+    
+        try:
+            # Save the images and generate file paths
+            image_filepaths = []
+            formatted_date_time = datetime.now().strftime("%Y%m%d%H%M")
+            for i in [1,2]:
+                if i == 1:
+                    print("Saving image [1/2]")
+                    response = response_1
+                else:
+                    print("Saving image [2/2]")
+                    response = response_2
+                generated_image_name = f"img_{i}_{formatted_date_time}.png" 
+                generated_image_filepath = os.path.join(image_dir, generated_image_name)
+                generated_image_url = response.data[0].url  # extract image URL from response
+                generated_image = requests.get(generated_image_url).content  # download the image
 
-        with open(generated_image_filepath, "wb") as image_file:
-            image_file.write(generated_image)  # write the image to the file
-        return render_template('result.html', image_url=generated_image_filepath)
+                with open(generated_image_filepath, "wb") as image_file:
+                    image_file.write(generated_image)  # write the image to the file
+                image_filepaths.append(generated_image_filepath)
 
+            # Pass both image file paths to the template
+            return render_template('result.html', image_urls=image_filepaths)
+        except Exception as e:
+            print(f"Saving image(s) failed with error: {str(e)}")
+            # Return an error message if all retries fail
+            return render_template(
+                'error.html', 
+                error_message="Failed to process your request. Please try again.")
 if __name__ == '__main__':
     app.run(debug=True)
 

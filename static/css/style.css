@@ -1,3 +1,15 @@
+body {
+    background-color: #ddd;
+}
+
+#mainContainer {
+    margin:1vh;
+    border: #333 1px solid;
+    border-radius: 3px;
+    background-color: #eee;
+    padding: 1vh;
+}
+
 img {
     width: 100%; /* Adjust the width as necessary, could also use max-width */
     height: auto; /* This maintains the aspect ratio */
@@ -5,7 +17,53 @@ img {
   }
 
 #imageContainer {
-    width:80vh; 
-    height:80vh; 
-    margin:10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+#submitBtn:disabled {
+    background-color: #ccc; /* Light grey */
+    cursor: not-allowed; /* Indicates the button is not clickable */
+}
+
+.animal-btn {
+    font-size: 44px;
+    margin: 5px;
+    padding: 8px;
+    border: 2px solid transparent; /* Hide border */
+    background-color: #f0f0f0; /* Light grey background */
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.animal-btn.selected, .animal-btn:disabled {
+    border-color: #4CAF50; /* Highlight selected/disabled with a green border */
+}
+
+
+#loadingOverlay {
+    position: fixed; /* Cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 9999; /* Ensure it's on top of other content */
+    display: flex;
+    justify-content: center; /* Center the loader horizontally */
+    align-items: center; /* Center the loader vertically */
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

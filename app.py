@@ -123,15 +123,4 @@ def generate():
 if __name__ == '__main__':
     app.run(debug=True)
 
-# For example(s):
-# https://github.com/openai/openai-cookbook/blob/main/examples/dalle/Image_generations_edits_and_variations_with_DALL-E.ipynb
 
-# TODO: 
-# Variations
-# call the OpenAI API, using `create_variation` rather than `create`
-# variation_response = client.images.create_variation(
-#     image=generated_image,  # generated_image is the image generated above
-#    n=2,
-#    size="1024x1024",
-#    response_format="url",
-# )
